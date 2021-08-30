@@ -1,5 +1,10 @@
-from PIL import Image
 import math, sys, os, time
+try:
+    from PIL import Image
+except ModuleNotFoundError:
+    os.system("pip install Pillow")
+
+
 
 MAXW = 150
 args = sys.argv
