@@ -19,7 +19,7 @@ try:# clicking ot cmd?
         lum_map = lum_map[::-1]# switch to darkmode
 
     if "--max-width" in args[2:]:
-        MAXW = args.index(args.index("--max-width") +1)#the argument after this option
+        MAXW = int(args[args.index("--max-width") + 1])#the argument after this option
 
     
 
