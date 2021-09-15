@@ -1,99 +1,104 @@
 import os, time
+from collections import deque
+import curses #add a module not found failproof here idk
 
-width = 40
-height = 30
-isBlocked = "Not blocked"
-class Window:
-    def __init__(self, w:int, h:int):
-        self.width = w
-        self.height = h + 10
-        self.display = [[' ' for i in range(w)] for j in range(h)]
+WIDTH = 40
+HEIGHT = 30
 
-        os.system(f"mode con: cols={width} lines={height}") #makes the window lolol stackoverflow moment lodfsdl
-        
-    def dot(self, x:int, y:int, c='#'):
-        '''
-            adds the character {c} into the coords array. Default is # but it shouldn't happen.
-            Requires update() to actually print them out. lol
-        '''
-        self.display[y-1][x-1] = c
+os.system(f"mode con: cols={WIDTH} lines={HEIGHT}")
 
-    def dotMul(self, startx, y, char, l):
-        '''
-            puts chars repeatedly on a row, not sure if its useful''' 
-
-        for x in range(l):
-            self.display[y][x+startx] = char
-            
-    def update(self):
-        print('\r')
-        for r in self.display:
-            for c in r:
-                print(c, end='')
-            print('\n')
+menu = ["play", "options"]
 
 class Snake:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+        self.length = 3
+        self.dead = False
+        
         self.dir = 0 #up, right, down, left
         self.headpos = [x,y]
-        self.allpos = [tuple(self.headpos[:])]
+        self.allpos = deque([tuple(self.headpos[:])])
         
-    def move(self, direction):
-        global isBlocked
-        if direction == '0' and self.dir != 2:#up when not facing down
-            self.headpos = [self.headpos[0], self.headpos[1]-1]
-            self.allpos.append((self.headpos[0], self.headpos[1]))
-            self.dir = 0
-            isBlocked = "Not blocked"
+    def move(self):
+        if self.dir == 0:#up
+            self.allpos.appendleft((self.headpos[0], self.headpos[1]-1))
+        elif self.dir == 1:#right
+            self.allpos.appendleft((self.headpos[0]+1, self.headpos[1]))
+        elif self.dir == 2:#down
+            self.allpos.appendleft((self.headpos[0], self.headpos[1]+1))
+        elif self.dir == 3:#left
+            self.allpos.appendleft((self.headpos[0]-1, self.headpos[1]))
 
-        elif direction == '1' and self.dir != 3:#right when not facing 
-            self.headpos = [self.headpos[0]+1, self.headpos[1]]
-            self.allpos.append((self.headpos[0], self.headpos[1]))
-            self.dir = 1
-            isBlocked = "Not blocked"
+player = Snake(WIDTH // 2, HEIGHT // 2)
 
-        elif direction == '2' and self.dir != 0:#down when not facing up
-            self.headpos = [self.headpos[0], self.headpos[1]+1]
-            self.allpos.append((self.headpos[0], self.headpos[1]))
-            self.dir = 2
-            isBlocked = "Not blocked"
+def startMenu(screen):
+    height, width = screen.getmaxyx()
+    for count, item in enumerate(menu):
+        x = (width - len(item))//2
+        y = height//2 + count 
+        screen.addstr(y, x, item)
 
-        elif direction == '3' and self.dir != 1:#left when not facing right
-            self.headpos = [self.headpos[0]-1, self.headpos[1]]
-            self.allpos.append((self.headpos[0], self.headpos[1]))
-            self.dir = 3
-            isBlocked = "Not blocked"
 
-        else:
-            isBlocked = "Blocked"
-        
+def Main(screen):
+    curses.use_default_colors()
 
-Screen = Window(width,height)
-player = Snake(int(width/2), int(height/2))
+    def dotScr(x:int, y:int, c):#I hate my life
+        screen.addstr(y, x, c)
 
-def Main():
-    print(f"All pos: {player.allpos}")
-    print(f"Current pos: {player.headpos}")
+    #startMenu(screen)
 
     while True:
-        cin = input()
+        cin = screen.getch()
 
-        player.move(cin) 
-
+        if player.dead or cin == 101:#e key or die to quit
+            screen.erase()
+            screen.addstr(HEIGHT // 2, WIDTH // 2,"You died!")
+            print("Game over!")
+            time.sleep(0.5)
+            exit()
         
+        if cin == curses.KEY_UP and player.dir != 2 :#up when not facing down
+            player.headpos = [player.headpos[0], player.headpos[1]-1]
+            player.dir = 0
+            player.isBlocked = "Not blocked"
+        elif cin == curses.KEY_RIGHT and player.dir != 3:#right when not facing 
+            player.headpos = [player.headpos[0]+1, player.headpos[1]]
+            player.dir = 1
+            player.isBlocked = "Not blocked"
+        elif cin == curses.KEY_DOWN and player.dir != 0:#down when not facing up
+            player.headpos = [player.headpos[0], player.headpos[1]+1]
+            player.dir = 2
+            player.isBlocked = "Not blocked"
+        elif cin == curses.KEY_LEFT and player.dir != 1:#left when not facing right
+            player.headpos = [player.headpos[0]-1, player.headpos[1]]
+            player.dir = 3
+            player.isBlocked = "Not blocked"
+        else:
+            player.isBlocked = "Blocked"
 
+        player.move()
 
+        while len(player.allpos) > player.length:
+            player.allpos.pop()
+
+#####################################################################################
+        screen.erase()#cleear
+
+        #draw snake body
         for pos in player.allpos:
-            Screen.dot(pos[0], pos[1], 'o')
-        Screen.dot(player.headpos[0], player.headpos[1], '+')
+            dotScr(pos[0], pos[1], 'o')
 
-        Screen.update()
+        #draw head
+        dotScr(player.headpos[0], player.headpos[1], '+')
 
-        print(isBlocked)
+        screen.refresh()
+
+        #antibug
+        print(player.isBlocked)
         print(f"All pos: {player.allpos}")
-        print(f"Current pos: {player.headpos}")
+        print(f"Current pos: {player.headpos}\n")
 
 if __name__ == "__main__":
-    Main()
+    curses.wrapper(Main)

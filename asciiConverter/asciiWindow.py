@@ -1,6 +1,6 @@
 #This class i made is too cool to be deleted.
 
-'''class Window:
+class Window:
     def __init__(self, w:int, h:int):
         self.width = w
         self.height = h + 10
@@ -27,4 +27,4 @@
         for r in self.display:
             for c in r:
                 print(c, end='')
-            print('\n')'''
+            print('\n')
