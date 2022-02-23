@@ -1,0 +1,23 @@
+1
+ushort input, s0, s1, temp
+temp = input << 8
+s0 = input ^ temp
+
+2
+input = swap s0's bytes
+use the OR
+
+3
+take right byte of s0
+s0 = input ^ s0
+
+4
+s0 >> 1
+s1 = s0 ^ FF80
+
+5
+if s0 is odd, const = 8180
+if s0 is even, const = 1FF4
+input = s1 ^ const
+
+return input

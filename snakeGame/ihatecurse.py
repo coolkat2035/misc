@@ -57,9 +57,8 @@ def Main(stdscr):
         else:#move forward
 
             print((x, y))
+            
 
-        while len(snake) > length:
-            snake.pop()
 
         window.clear()
         

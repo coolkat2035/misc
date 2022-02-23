@@ -1,0 +1,2 @@
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.pdb
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.exe

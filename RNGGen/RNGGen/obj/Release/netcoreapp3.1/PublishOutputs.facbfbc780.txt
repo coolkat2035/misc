@@ -1,0 +1,5 @@
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.exe
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.dll
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.deps.json
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.runtimeconfig.json
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Release\netcoreapp3.1\publish\RNGGen.pdb

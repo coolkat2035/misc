@@ -1,0 +1,14 @@
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.AssemblyInfoInputs.cache
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.AssemblyInfo.cs
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.csproj.CoreCompileInputs.cache
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.exe
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.deps.json
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.runtimeconfig.json
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.runtimeconfig.dev.json
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.dll
+C:\Users\rando\Desktop\RNGGen\RNGGen\bin\Debug\netcoreapp3.1\RNGGen.pdb
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.dll
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.pdb
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.genruntimeconfig.cache
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.csproj.AssemblyReference.cache
+C:\Users\rando\Desktop\RNGGen\RNGGen\obj\Debug\netcoreapp3.1\RNGGen.GeneratedMSBuildEditorConfig.editorconfig
