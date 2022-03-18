@@ -1,4 +1,4 @@
-import os
+import platform, os#bruh
 board = [['.' for x in range(7)] for y in range(6)]
 #len(board) number of rows
 #len(board[0]) number of cols
@@ -6,7 +6,7 @@ board = [['.' for x in range(7)] for y in range(6)]
 #wow i havent touched 2d arrays for 2 years
 
 def cls():
-  if name == 'nt':#windows
+  if platform.system() == 'Windows':
     os.system('cls') 
   else:#mac and linux
     os.system('clear')

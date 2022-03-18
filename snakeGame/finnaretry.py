@@ -2,6 +2,10 @@ import curses
 from curses import wrapper
 
 def main(stdscr):
-  pass 
+  stdscr.clear()
+  stdscr.addstr("BRUH")
+  stdscr.refresh()
+  stdscr.getch()
+
 
 wrapper(main)

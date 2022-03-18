@@ -12,7 +12,7 @@ lum_map = "@#$%&?/:,."#lightmode
 img_name = "defaultNameYouShouldntSeeThis.png"#image name lmao should be updated
 name_noext = "defaultNameYouShouldntSeeThis"
 
-try:# clicking ot cmd?
+try:# clicking or cmd?
     img_name = args[1]# cmd
 
     if "-d" in args[2:]:
@@ -20,8 +20,6 @@ try:# clicking ot cmd?
 
     if "--max-width" in args[2:]:
         MAXW = int(args[args.index("--max-width") + 1])#the argument after this option
-
-    
 
 except IndexError:#clicking
     img_name = input("Enter your input image path here (with extension!!!)>> ")

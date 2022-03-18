@@ -19,7 +19,7 @@ def validate(ans):#Answer not accepted
     return 2
   return 0
 
-def check(ans):#check the whole thing char by chat
+def check(ans):#check the whole thing char by char
   pattern = ""
   for c in range(len(ans)):
     if ans[c] == solution[c]:#0 = correct place
@@ -39,13 +39,16 @@ or anything else to see the instructions.""") != '':
   input(
   """ This is a guessing game where you guess a word each turn. 
 
-  You will then see a new line printed out with 4 possibilities:")
+  You will then see a new line printed out with 4 possibilities:"
   1. An error message
-  or your answer, with
+     or your answer, with
+     
   2. Two spaces surrounding a character (like this: e )
      means this character is not in the correct answer.
+     
   3. A pair of round brackets around a character (like this: (e) )
      means this character is in the correct answer, but wrong place.
+     
   4. A pair of square brackets around a character (like this: [e] )
      means this character is in the right place of the correct answer.
 
@@ -54,7 +57,7 @@ or anything else to see the instructions.""") != '':
 
   (Press enter to start the game.)""")
 
-os.system("clear")
+os.system("cls")
   
 while True:
   if hp <= 0:
@@ -88,6 +91,7 @@ while True:
     print("You win!")
     break
 
+os.system("pause")
   
   
   

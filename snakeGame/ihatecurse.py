@@ -6,9 +6,6 @@ WIDTH = 40
 os.system(f"mode con: cols={WIDTH+1} lines={HEIGHT}")
 
 def Main(stdscr):
-    curses.start_color()
-    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
-
     #windows
     window = curses.newwin(HEIGHT, WIDTH)
     window.keypad(1)
