@@ -10,7 +10,7 @@ pygame.display.set_caption("professional time waster")
 
 clock = pygame.time.Clock()
 
-dvd = pygame.image.load("le_logo.png")
+dvd = pygame.image.load("dvdLogo/le_logo.png")
 dvd = pygame.transform.scale(dvd, LOGO_SIZE)
 
 dvd_white = dvd.copy()
@@ -37,7 +37,7 @@ while run:
       run = False
 
   if x not in range(0, WIDTH - LOGO_SIZE[0]+1):#bouncy
-    vX = (vX + random.randint(-1,1)) * -1#speed up/down a bit, then reverse direction
+    vX = vX * -1#(vX + random.randint(-1,1)) * -1#speed up/down a bit, then reverse direction
     if vX > 7:
       vX -= random.randint(2,5)
     elif vX < -7:
@@ -45,7 +45,7 @@ while run:
     dvd = changeColor(dvd_white, (random.randint(0,255), random.randint(0,255), random.randint(0,255)))
     
   if y not in range(0, HEIGHT - LOGO_SIZE[1]+1):
-    vY = (vY + random.randint(-1,1)) * -1
+    vY = vY * -1#(vY + random.randint(-1,1)) * -1
     if vY > 7:
       vY -= random.randint(2,5)
     elif vY < -7:
