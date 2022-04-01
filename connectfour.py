@@ -3,7 +3,7 @@ board = [['.' for x in range(7)] for y in range(6)]
 #len(board) number of rows
 #len(board[0]) number of cols
 #board[row][col]
-#wow i havent touched 2d arrays for 2 years
+#wow i havent touched 2d arrays for like 2 years
 
 def cls():
   if platform.system() == 'Windows':

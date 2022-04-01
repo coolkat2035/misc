@@ -37,7 +37,7 @@ while run:
       run = False
 
   if x not in range(0, WIDTH - LOGO_SIZE[0]+1):#bouncy
-    vX = vX * -1#(vX + random.randint(-1,1)) * -1#speed up/down a bit, then reverse direction
+    vX = vX * -1#(vX + random.randint(-1,1)) * -1#speed up/down a bit, then reverse direction...
     if vX > 7:
       vX -= random.randint(2,5)
     elif vX < -7:

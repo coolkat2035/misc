@@ -71,9 +71,6 @@ def prime():
 
     print(prims[:count])
     
-
-
-
 allFunc = {
     1 : palindrome,
     2 : password,

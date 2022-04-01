@@ -32,7 +32,7 @@ def check(ans):#check the whole thing char by char
       pattern = pattern + '2'
 
   return pattern
-########################################################################
+########################################################################a
 hp = 6
 if input("""Welcome to Crappy Wordle! Type enter to start the game,
 or anything else to see the instructions.""") != '':

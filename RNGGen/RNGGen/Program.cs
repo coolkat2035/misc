@@ -31,7 +31,7 @@ namespace RNGGen
             Console.WriteLine("Step 5: If s0 is odd, XOR s1 with 0x8180, else XOR with 0x1FF4.\nResult: input = {0:X}\n", input);
             //thend
         }
-        static ushort RngFunction(ref ushort input)//ref cuz need to store the used rng in current_rng
+        static ushort RngFunction(ref ushort input)//ref cuz need to store the used rng in current_rng?
         {
             ushort s0, s1;
             s0 = (ushort)(input ^ (input << 8));
